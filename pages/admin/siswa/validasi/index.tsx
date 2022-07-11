@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable array-callback-return */
 /* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/no-unstable-nested-components */
@@ -6,7 +8,6 @@ import { useMemo, useState, useEffect, useCallback, createContext } from 'react'
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 
-import styled from 'styled-components';
 import styles from '../../../../styles/Validasi.module.css';
 
 import Gap from '../../../../components/atoms/Gap';
@@ -37,7 +38,7 @@ export default function Validasi() {
 
 	const [modalValidasi, setShowMValidasi] = useState({ show: false, prefix: '', payload: null });
 	const handleValidation = (payload: any) => {
-		setShowMValidasi({ show: true, prefix: 'Validasi', payload: payload });
+		setShowMValidasi({ show: true, prefix: 'Validasi', payload });
 	};
 
 	const [modalHapus, setModalHapus] = useState({ show: false, id: '' });
@@ -49,7 +50,7 @@ export default function Validasi() {
 	const [optionKelas, setOptionKelas] = useState([]);
 
 	const settingOption = (dataKelas: any): void => {
-		let collection: any = [];
+		const collection: any = [];
 		type Kelas = {
 			_id: string;
 			tingkatan: string;
@@ -89,12 +90,11 @@ export default function Validasi() {
 		const response = (await getAllValidation({ validasi: 'pending' })) as any;
 		const { data } = response.data;
 		const { total } = response.data;
-		let collection: any = [];
+		const collection: any = [];
 		data.map(
 			(
 				{ _id, namaLengkap, NISN, tempatLahir, tanggalLahir, telp, namaIbu, email }: ValidasiProps,
 				index: any
-				// eslint-disable-next-line array-callback-return
 			) => {
 				const newListing = {
 					_id,

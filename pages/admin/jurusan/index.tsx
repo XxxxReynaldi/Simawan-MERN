@@ -1,9 +1,10 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useCallback } from 'react';
 
 import { Col, Container, Row } from 'react-bootstrap';
-import { wrapper } from '../../../store/store';
-import jwtDecode from 'jwt-decode';
+// import { wrapper } from '../../../store/store';
+// import jwtDecode from 'jwt-decode';
 
 import Gap from '../../../components/atoms/Gap';
 import CardJurusan from '../../../components/atoms/CardJurusan';
@@ -13,7 +14,7 @@ import ModalJurusan from '../../../components/molecules/ModalJurusan';
 import ModalHapus from '../../../components/molecules/ModalHapus';
 import SideBar from '../../../components/organisms/SideBar';
 
-import { JurusanTypes, JWTPayloadTypes, UserPayloadTypes } from '../../../services/Data-types';
+import { JurusanTypes } from '../../../services/Data-types';
 import { getAllJurusan } from '../../../services/jurusan';
 
 export default function Jurusan() {
@@ -90,7 +91,30 @@ export default function Jurusan() {
 	);
 }
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req }: any) => {
+// export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req }: any) => {
+// 	const { token } = req.cookies;
+// 	if (!token) {
+// 		return {
+// 			redirect: {
+// 				destination: '/',
+// 				permanent: false,
+// 			},
+// 		};
+// 	}
+
+// 	return {
+// 		props: {},
+// 	};
+// });
+
+interface GetServerSideProps {
+	req: {
+		cookies: {
+			token: string;
+		};
+	};
+}
+export async function getServerSideProps({ req }: GetServerSideProps) {
 	const { token } = req.cookies;
 	if (!token) {
 		return {
@@ -100,36 +124,13 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
 			},
 		};
 	}
+	// const jwtToken = Buffer.from(token, 'base64').toString('ascii');
+	// const payload: JWTPayloadTypes = jwtDecode(jwtToken);
+	// const userFromPayload: UserPayloadTypes = payload.user;
 
 	return {
-		props: {},
+		props: {
+			// user: userFromPayload,
+		},
 	};
-});
-
-// interface GetServerSideProps {
-// 	req: {
-// 		cookies: {
-// 			token: string;
-// 		};
-// 	};
-// }
-// export async function getServerSideProps({ req }: GetServerSideProps) {
-// const { token } = req.cookies;
-// if (!token) {
-// 	return {
-// 		redirect: {
-// 			destination: '/',
-// 			permanent: false,
-// 		},
-// 	};
-// }
-// // const jwtToken = Buffer.from(token, 'base64').toString('ascii');
-// // const payload: JWTPayloadTypes = jwtDecode(jwtToken);
-// // const userFromPayload: UserPayloadTypes = payload.user;
-
-// return {
-// 	props: {
-// 		// user: userFromPayload,
-// 	},
-// };
-// }
+}

@@ -29,7 +29,7 @@ interface ModalKelasProps {
 }
 
 export default function ModalKelas(props: Partial<ModalKelasProps>) {
-	const { show, handleClose, prefix, suffix, id = '', payload } = props;
+	const { show, handleClose, prefix, payload } = props;
 
 	const [formData, setFormData] = useState({
 		_id: '',
@@ -101,8 +101,8 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 		}
 	};
 
-	const getKelas = useCallback(async (payload: any) => {
-		const { tingkatan, keahlian } = payload;
+	const getKelas = useCallback(async (data: any) => {
+		const { tingkatan, keahlian } = data;
 		const findTingkatan = options.find((option: any) => option.value === tingkatan) as any;
 		setSelectedTingkatan(findTingkatan);
 
@@ -118,15 +118,15 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 		setSelectedKeahlian(currentKeahlian);
 
 		setCardKelas({
-			_id: payload._id,
-			abjad: payload.abjad,
+			_id: data._id,
+			abjad: data.abjad,
 			tingkatan,
 			keahlian: { singkatan, paketKeahlian, warna },
 		});
 
-		setFormData(payload);
+		setFormData(data);
 
-		const checkAktif = payload.status;
+		const checkAktif = data.status;
 		if (checkAktif === 'Y') {
 			setCheckBoxStatus(true);
 		} else if (checkAktif === 'N') {
@@ -235,7 +235,7 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 	};
 
 	return (
-		<Modal show={show} onHide={handleClose} size='lg' centered>
+		<Modal show={!!show} onHide={handleClose} size='lg' centered>
 			<ModalHeader prefix={prefix} suffix='Kelas' />
 			<Form noValidate onSubmit={onSubmit} id='form-kelas'>
 				<Modal.Body>

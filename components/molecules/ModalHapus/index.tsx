@@ -1,9 +1,11 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable no-shadow */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-case-declarations */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useCallback, useEffect, SyntheticEvent } from 'react';
-import { Container, Row, Col, Button, Modal, Form, Badge } from 'react-bootstrap';
+import { Container, Button, Modal, Form, Badge } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
 import ModalHeader from '../../atoms/ModalHeader';
@@ -152,7 +154,7 @@ export default function ModalHapus(props: Partial<ModalHapusProps>) {
 	));
 
 	return (
-		<Modal show={show} onHide={handleClose} centered>
+		<Modal show={!!show} onHide={handleClose} centered>
 			<ModalHeader prefix={prefix} suffix={suffix} />
 			<Form>
 				<Modal.Body>

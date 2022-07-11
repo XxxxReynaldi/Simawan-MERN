@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import sCard from '../../../styles/Card.module.css';

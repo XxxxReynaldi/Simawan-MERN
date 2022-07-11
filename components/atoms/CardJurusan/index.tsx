@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -26,7 +27,7 @@ const Cardx = styled(Card)`
 
 export default function CardJurusan(props: Partial<CardJurusanProps>) {
 	const { data, edit, remove } = props;
-	const { _id, paketKeahlian, singkatan, warna, kode } = data;
+	const { paketKeahlian, singkatan, warna, kode } = data;
 	const [show, setShow] = useState(false);
 
 	return (

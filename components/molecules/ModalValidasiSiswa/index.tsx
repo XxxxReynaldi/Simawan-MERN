@@ -1,9 +1,12 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable comma-dangle */
+/* eslint-disable consistent-return */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable @next/next/no-img-element */
+
 import { useContext, useState, useEffect, ChangeEvent, SyntheticEvent } from 'react';
-import { Container, Row, Col, Table, Button, Modal, Form } from 'react-bootstrap';
+import { Container, Row, Col, Button, Modal, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
 import Gap from '../../atoms/Gap';
@@ -25,7 +28,7 @@ interface ModalValidasiSiswaProps {
 }
 
 export default function ModalValidasiSiswa(props: Partial<ModalValidasiSiswaProps>) {
-	const { show, handleClose, prefix, suffix, id = '', payload } = props;
+	const { show, handleClose, prefix, payload } = props;
 
 	const [field, setField] = useState({});
 	const [formData, setFormData] = useState({ kelas: '', prefixNIS: '', NIS: 0 });
@@ -99,7 +102,7 @@ export default function ModalValidasiSiswa(props: Partial<ModalValidasiSiswaProp
 	};
 
 	function resetForm() {
-		setFormData((prev: any) => ({ kelas: '', prefixNIS: '', NIS: 0 }));
+		setFormData(() => ({ kelas: '', prefixNIS: '', NIS: 0 }));
 		setSelectedKelas(null);
 	}
 
@@ -121,7 +124,7 @@ export default function ModalValidasiSiswa(props: Partial<ModalValidasiSiswaProp
 	useEffect(() => {
 		if (payload) {
 			const { _id, namaLengkap, NISN, tempatLahir, tanggalLahir, namaIbu, telp, email } = payload;
-			setTableData((prev: any) => ({
+			setTableData(() => ({
 				_id,
 				namaLengkap: namaLengkap.replace(/(^\w{1})|(\s+\w{1})/g, (letter: string) =>
 					letter.toUpperCase()
@@ -141,7 +144,7 @@ export default function ModalValidasiSiswa(props: Partial<ModalValidasiSiswaProp
 	}, [payload]);
 
 	return (
-		<Modal show={show} onHide={handleClose} backdrop='static' size='xl' centered>
+		<Modal show={!!show} onHide={handleClose} backdrop='static' size='xl' centered>
 			<ModalHeader prefix={prefix} suffix='Siswa' />
 			<Form noValidate onSubmit={onSubmit} id='form-upload-img'>
 				<Modal.Body>

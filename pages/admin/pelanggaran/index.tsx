@@ -1,10 +1,10 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable max-len */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { Col, Container, Row, Card, Tabs, Tab } from 'react-bootstrap';
 
-import jwtDecode from 'jwt-decode';
-import styled from 'styled-components';
+// import jwtDecode from 'jwt-decode';
 import styles from '../../../styles/Pelanggaran.module.css';
 
 import Gap from '../../../components/atoms/Gap';
@@ -16,11 +16,9 @@ import ModalHapus from '../../../components/molecules/ModalHapus';
 import SideBar from '../../../components/organisms/SideBar';
 
 import { getAllPelanggaran } from '../../../services/pelanggaran';
-import { JWTPayloadTypes, UserPayloadTypes } from '../../../services/Data-types';
+// import { JWTPayloadTypes, UserPayloadTypes } from '../../../services/Data-types';
 
-export default function Pelanggaran(props: any) {
-	const { user } = props;
-
+export default function Pelanggaran() {
 	const [modalPelanggaran, setShowMPelanggaran] = useState({
 		show: false,
 		prefix: '',
@@ -172,13 +170,13 @@ export async function getServerSideProps({ req }: GetServerSideProps) {
 		};
 	}
 
-	const jwtToken = Buffer.from(token, 'base64').toString('ascii');
-	const payload: JWTPayloadTypes = jwtDecode(jwtToken);
-	const userFromPayload: UserPayloadTypes = payload.user;
+	// const jwtToken = Buffer.from(token, 'base64').toString('ascii');
+	// const payload: JWTPayloadTypes = jwtDecode(jwtToken);
+	// const userFromPayload: UserPayloadTypes = payload.user;
 
 	return {
 		props: {
-			user: userFromPayload,
+			// user: userFromPayload,
 		},
 	};
 }

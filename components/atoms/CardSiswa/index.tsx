@@ -25,15 +25,13 @@ interface CardSiswaProps {
 export default function CardSiswa(props: Partial<CardSiswaProps>) {
 	const { data, edit, remove } = props;
 	const {
-		_id,
 		namaLengkap,
 		NIS,
 		kelas: {
 			tingkatan,
-			keahlian: { paketKeahlian, singkatan, warna },
+			keahlian: { singkatan, warna },
 			abjad,
 		},
-		NISN,
 	} = data;
 
 	const [show, setShow] = useState(false);

@@ -15,7 +15,7 @@ export interface ColorPickerProps {
 }
 
 export default function ColorPicker(props: Partial<ColorPickerProps>) {
-	const { label, fieldstate = false, placeholder } = props;
+	const { label, placeholder } = props;
 
 	return (
 		<Form.Group className='mb-3'>

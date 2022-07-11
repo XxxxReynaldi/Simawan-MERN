@@ -3,7 +3,7 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, ChangeEvent, SyntheticEvent } from 'react';
-import { Container, Row, Col, Button, Modal, Form } from 'react-bootstrap';
+import { Container, Row, Button, Modal, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
 import Input from '../../atoms/Input';
@@ -21,7 +21,7 @@ interface ModalPelanggaranProps {
 }
 
 export default function ModalPelanggaran(props: Partial<ModalPelanggaranProps>) {
-	const { show, handleClose, prefix, suffix, id = '', payload } = props;
+	const { show, handleClose, prefix, payload } = props;
 
 	const [field, setField] = useState({});
 
@@ -52,13 +52,13 @@ export default function ModalPelanggaran(props: Partial<ModalPelanggaranProps>) 
 		}
 	};
 
-	const getPelanggaran = async (payload: any) => {
-		// console.log('payload', payload);
-		const { kategori } = payload;
+	const getPelanggaran = async (data: any) => {
+		// console.log('data', data);
+		const { kategori } = data;
 		const findKategori = options.find((option: any) => option.value === kategori) as any;
 		setSelectedKategori(findKategori);
 
-		setFormData(payload);
+		setFormData(data);
 	};
 
 	useEffect(() => {
@@ -112,7 +112,7 @@ export default function ModalPelanggaran(props: Partial<ModalPelanggaranProps>) 
 	};
 
 	return (
-		<Modal show={show} onHide={handleClose} size='lg' centered>
+		<Modal show={!!show} onHide={handleClose} size='lg' centered>
 			<ModalHeader prefix={prefix} suffix='Pelanggaran' />
 			<Form noValidate onSubmit={onSubmit} id='form-pelanggaran'>
 				<Modal.Body>

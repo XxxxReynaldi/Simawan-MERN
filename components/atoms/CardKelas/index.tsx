@@ -38,8 +38,8 @@ export default function CardKelas(props: Partial<CardKelasProps>) {
 		jumlahSiswa: 0,
 	});
 
-	const setCard = (data: any) => {
-		const { _id, tingkatan, abjad, keahlian, jumlahSiswa } = data;
+	const setCard = (payload: any) => {
+		const { tingkatan, abjad, keahlian, jumlahSiswa } = payload;
 		const { singkatan, paketKeahlian, warna } = keahlian;
 		setCardKelas((prev: any) => ({
 			...prev,

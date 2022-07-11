@@ -1,6 +1,7 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable @next/next/no-img-element */
+
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -10,15 +11,11 @@ import Cookies from 'js-cookie';
 import { JWTPayloadTypes, UserPayloadTypes } from '../../../services/Data-types';
 import { getDataUser } from '../../../services/user';
 
-interface AuthProps {
-	isLogin: Boolean;
-}
-
 const API_IMG = process.env.NEXT_PUBLIC_IMG;
 
-export default function Auth(props: Partial<AuthProps>) {
+export default function Auth() {
 	const [isLogin, setIsLogin] = useState(false);
-	const [user, setUser] = useState({ namaLengkap: '', role: '', foto: '' });
+
 	const [dataUser, setDataUser] = useState({ namaLengkap: '', role: '', foto: 'default.jpg' });
 
 	const router = useRouter();
@@ -42,7 +39,6 @@ export default function Auth(props: Partial<AuthProps>) {
 			const payload: JWTPayloadTypes = jwtDecode(jwtToken);
 			const userFromPayload: UserPayloadTypes = payload.user;
 			setIsLogin(true);
-			setUser(userFromPayload);
 			getUser(userFromPayload);
 		}
 	}, []);

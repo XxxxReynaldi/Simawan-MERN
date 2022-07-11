@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-no-bind */
 
@@ -81,7 +82,7 @@ export default function Kelas() {
 	}, [modalKelas, modalHapus]);
 
 	const settingOption = (dataJurusan: any): void => {
-		let collection: any = [];
+		const collection: any = [];
 		type Jurusan = {
 			_id: string;
 			paketKeahlian: string;

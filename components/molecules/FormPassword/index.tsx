@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-bind */
 import { SyntheticEvent, ChangeEvent, useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';

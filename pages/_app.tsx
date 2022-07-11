@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import '../styles/globals.css';
 import '../styles/sidebar.css';
 import type { AppProps } from 'next/app';

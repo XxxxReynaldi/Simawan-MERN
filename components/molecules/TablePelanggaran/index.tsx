@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo } from 'react';

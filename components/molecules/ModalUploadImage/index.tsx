@@ -1,14 +1,13 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 
-/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, ChangeEvent, SyntheticEvent } from 'react';
-import { Container, Row, Col, Button, Modal, Form } from 'react-bootstrap';
+import { Container, Row, Button, Modal, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import Image from 'next/image';
+
 import ModalHeader from '../../atoms/ModalHeader';
 import ModalHapus from '../ModalHapus';
 
-import pict from '../../../styles/picture.module.css';
+import pict from '../../../styles/Picture.module.css';
 
 import { updatePhoto } from '../../../services/user';
 
@@ -24,13 +23,13 @@ interface ModalUploadImageProps {
 const API_IMG = process.env.NEXT_PUBLIC_IMG;
 
 export default function ModalUploadImage(props: Partial<ModalUploadImageProps>) {
-	const { show, handleClose, prefix, suffix, id = '', payload } = props;
+	const { show, handleClose, prefix, payload } = props;
 
 	const [defaultPreview, setDefaultPreview] = useState<any>(null);
 	const [image, setImage] = useState<any>('');
 	const [imagePreview, setImagePreview] = useState<any>(null);
 
-	const [formData, setFormData] = useState({ foto: 'default.jpg' });
+	// const [formData, setFormData] = useState({ foto: 'default.jpg' });
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const target = e.target as any;
@@ -41,14 +40,14 @@ export default function ModalUploadImage(props: Partial<ModalUploadImageProps>) 
 			setImage(img);
 		}
 
-		setFormData((prev: any) => ({
-			...prev,
-			[target.name]: target.type === 'file' ? target.files : target.value,
-		}));
+		// setFormData((prev: any) => ({
+		// 	...prev,
+		// 	[target.name]: target.type === 'file' ? target.files : target.value,
+		// }));
 	};
 
 	function resetForm() {
-		setFormData({ foto: 'default.jpg' });
+		// setFormData({ foto: 'default.jpg' });
 		setImagePreview(null);
 		setImage('');
 	}
@@ -84,7 +83,7 @@ export default function ModalUploadImage(props: Partial<ModalUploadImageProps>) 
 
 	return (
 		<>
-			<Modal show={show} onHide={handleClose} backdrop='static' centered>
+			<Modal show={!!show} onHide={handleClose} backdrop='static' centered>
 				<ModalHeader prefix={prefix} suffix='Profile Image' />
 				<Form noValidate onSubmit={onSubmit} id='form-upload-img'>
 					<Modal.Body>

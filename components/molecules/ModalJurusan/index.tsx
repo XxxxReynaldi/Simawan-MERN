@@ -23,7 +23,7 @@ interface ModalJurusanProps {
 }
 
 export default function ModalJurusan(props: Partial<ModalJurusanProps>) {
-	const { show, handleClose, prefix, suffix, id = '', payload } = props;
+	const { show, handleClose, prefix, payload } = props;
 
 	const [formData, setFormData] = useState({
 		_id: '',
@@ -39,13 +39,13 @@ export default function ModalJurusan(props: Partial<ModalJurusanProps>) {
 	const [checkBoxStatus, setCheckBoxStatus] = useState(true);
 	const [field, setField] = useState({});
 
-	const getJurusan = (payload: any) => {
-		setFormData(payload);
-		const checkAktif = payload.status;
+	const getJurusan = (data: any) => {
+		setFormData(data);
+		const checkAktif = data.status;
 		// console.log('checkAktif', checkAktif);
-		if (checkAktif == 'Y') {
+		if (checkAktif === 'Y') {
 			setCheckBoxStatus(true);
-		} else if (checkAktif == 'N') {
+		} else if (checkAktif === 'N') {
 			setCheckBoxStatus(false);
 		}
 		// console.log('checkBoxStatus', checkBoxStatus);
@@ -132,7 +132,7 @@ export default function ModalJurusan(props: Partial<ModalJurusanProps>) {
 	};
 	return (
 		<>
-			<Modal show={show} onHide={handleClose} centered>
+			<Modal show={!!show} onHide={handleClose} centered>
 				<ModalHeader prefix={prefix} suffix='Jurusan' />
 				<Form noValidate onSubmit={onSubmit} id='form-jurusan'>
 					<Modal.Body>

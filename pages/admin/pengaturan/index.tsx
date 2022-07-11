@@ -7,9 +7,8 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Row, Tabs, Tab, Card } from 'react-bootstrap';
 import jwtDecode from 'jwt-decode';
 
-import styled from 'styled-components';
 import styles from '../../../styles/Pengaturan.module.css';
-import pict from '../../../styles/picture.module.css';
+import pict from '../../../styles/Picture.module.css';
 
 import Gap from '../../../components/atoms/Gap';
 import Header from '../../../components/atoms/Header';
@@ -19,7 +18,7 @@ import ModalUploadImage from '../../../components/molecules/ModalUploadImage';
 import SideBar from '../../../components/organisms/SideBar';
 
 import { JWTPayloadTypes, UserPayloadTypes } from '../../../services/Data-types';
-import { getDataUser, updateProfile } from '../../../services/user';
+import { getDataUser } from '../../../services/user';
 
 const API_IMG = process.env.NEXT_PUBLIC_IMG;
 
