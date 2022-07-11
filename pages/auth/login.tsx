@@ -82,9 +82,9 @@ export default function Login() {
 							required
 							className={sLogin.input}
 						/>
-						<p className={sLogin['text-info']} style={{ textAlign: 'right' }}>
+						{/* <p className={sLogin['text-info']} style={{ textAlign: 'right' }}>
 							<a href='#'>lupa password?</a>
-						</p>
+						</p> */}
 						<Gap height={30} />
 						{/* <Link href='/admin' passHref> */}
 						<Button className={sLogin['btn']} variant='custom' type='submit'>
