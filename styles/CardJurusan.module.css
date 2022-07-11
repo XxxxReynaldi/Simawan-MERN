@@ -1,0 +1,28 @@
+.card-jurusan {
+	box-sizing: border-box;
+	box-shadow: -5px 5px 10px rgba(176, 176, 176, 0.2), 5px -5px 10px rgba(176, 176, 176, 0.2),
+		-5px -5px 10px rgba(216, 216, 216, 0.9), 5px 5px 13px rgba(176, 176, 176, 0.9),
+		inset 1px 1px 2px rgba(216, 216, 216, 0.3), inset -1px -1px 2px rgba(176, 176, 176, 0.5);
+	border-radius: 10px;
+	border: 0px;
+}
+.text-singkatan {
+	font-weight: 500;
+	font-size: 42px;
+	line-height: 63px;
+	color: #ffffff;
+	margin-bottom: 0px;
+}
+
+.text-paket-keahlian {
+	font-size: 14px;
+	line-height: 21px;
+	color: #ffffff;
+}
+
+.text-kode {
+	font-size: 14px;
+	line-height: 21px;
+	color: #ffffff;
+	margin-bottom: 0px;
+}

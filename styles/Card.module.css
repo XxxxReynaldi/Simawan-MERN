@@ -1,0 +1,35 @@
+.card-header {
+	margin: 24px 32px 0px 0px;
+	color: #fff;
+	padding: 12px;
+	border: 0;
+	border-radius: 0.5rem;
+	background: #0c145a;
+	box-shadow: 0px 6px 12px rgba(8, 14, 63, 0.9), inset 1px 1px 2px rgba(16, 26, 117, 0.3),
+		inset -1px -1px 2px rgba(8, 14, 63, 0.5);
+}
+
+.nav-tabs .nav-link.active {
+	color: #495057;
+	background-color: #fff;
+	border-color: #dee2e6 #dee2e6 #fff;
+	box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+}
+
+.card-custome {
+	margin: 20px;
+	padding: 40px;
+	background-color: #ffffff21;
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	box-shadow: 8px 8px 20px rgba(8, 7, 16, 0.5);
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 6;
+}

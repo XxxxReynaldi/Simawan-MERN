@@ -1,16 +1,194 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+		Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	background: #f1f1f1;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+	content: ' '; /* 1 */
+	display: table; /* 2 */
+}
+
+.cf:after {
+	clear: both;
+}
+
+/**
+  * For IE 6/7 only
+  * Include this rule to trigger hasLayout and contain floats.
+  */
+.cf {
+	*zoom: 1;
+}
+
+.btn {
+	font-size: 0.8rem;
+}
+
+/* Dropdown */
+.open > .dropdown-menu {
+	display: block;
+}
+
+.dropdown-header {
+	font-weight: 700;
+	font-size: 0.85em;
+	color: #4d627b;
+	padding: 12px 15px 5px !important;
+	text-transform: uppercase;
+}
+.dropdown-toggle > .dropdown-caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin: 0 3px;
+	border-style: solid;
+	border-width: 6px 4px 0 4px;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	vertical-align: baseline;
+}
+.dropdown-toggle > .dropdown-caret.caret-up {
+	border-width: 0 4px 6px 4px;
+	border-bottom-color: initial;
+	border-top-color: transparent;
+}
+.dropdown-menu {
+	font-size: 13px;
+	border-radius: 3px;
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	margin: 5px 0 0;
+	padding: 0;
+	border: 0;
+}
+.dropdown-menu > .active > a {
+	background-color: #25476a !important;
+	border-color: #25476a !important;
+	color: #fff !important;
+}
+.dropdown-menu > li {
+	padding: 2px 7px;
+}
+.dropdown-menu > li > a {
+	border-radius: 3px;
+	color: #7a878e;
+	display: block;
+	padding: 3px 20px;
+	clear: both;
+	font-weight: 400;
+	line-height: 1.42857143;
+	color: #333;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.dropdown-menu > li:first-child {
+	padding-top: 7px;
+}
+.dropdown-menu > li:last-child {
+	padding-bottom: 7px;
+}
+.dropdown-menu > li.divider {
+	padding: 0;
+	margin: 5px 0;
+}
+.dropdown-menu-right {
+	left: auto;
+	right: 0;
+}
+.dropdown-menu:not(.head-list) > li > a {
+	padding: 7px 10px;
+}
+.dropdown-menu:not(.head-list) > li > a:hover {
+	background-color: #25476a;
+	color: #fff;
+}
+.dropdown-menu.with-arrow:before,
+.dropdown-menu.with-arrow:after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 0;
+	top: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+}
+.dropdown-menu.with-arrow:before {
+	border-bottom: 7px solid rgba(0, 0, 0, 0.07);
+	margin: -7px 0 0 15px;
+}
+.dropdown-menu.with-arrow:after {
+	border-bottom: 7px solid #fff;
+	margin: -6px 0 0 15px;
+}
+.dropdown-menu-right.dropdown-menu.with-arrow:before {
+	left: auto;
+	right: 0;
+	margin: -7px 25px 0 0;
+}
+.dropdown-menu-right.dropdown-menu.with-arrow:after {
+	left: auto;
+	right: 0;
+	margin: -6px 25px 0 0;
+}
+.dropup .dropdown-menu {
+	margin-bottom: 5px;
+}
+.dropdown-menu-sm {
+	min-width: 220px;
+}
+.dropdown-menu-md {
+	min-width: 270px;
+}
+.dropdown-menu-lg {
+	min-width: 300px;
+}
+.dropdown.open > .dropdown-toggle,
+.btn-group.open .dropdown-toggle {
+	box-shadow: inset 0 3px 1px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Toast */
+.Toastify__toast-container {
+	width: 320px;
+}
+.Toastify__toast--default {
+	background: #fff;
+	color: #aaa;
+}
+.Toastify__toast--info {
+	background: purple;
+}
+.Toastify__toast--success {
+	background: teal;
+}
+.Toastify__toast--warning {
+	background: yellow;
+}
+.Toastify__toast--error {
+	background: red;
 }
