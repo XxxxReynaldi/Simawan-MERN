@@ -82,19 +82,21 @@ export default function Siswa() {
 	const onSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 
-		if (formData.tahunAjaran && formData.kelas !== '') {
-			const response = (await getSiswaByFilter(formData.tahunAjaran, formData.kelas)) as any;
-
-			const dataSiswa = response.data.data;
-			const { total } = response.data;
-			setSiswaListed(dataSiswa);
-			if (response.error || total === 0) {
-				toast.error('Data tidak ditemukan!');
-			} else {
-				toast.success(`${total} Data berhasil ditemukan!`);
-			}
+		if (formData.tahunAjaran && formData.kelas === '') {
+			toast.error('Semua Data Harus terisi');
+			return;
 		}
-		toast.error('Semua Data Harus terisi');
+
+		const response = (await getSiswaByFilter(formData.tahunAjaran, formData.kelas)) as any;
+
+		const dataSiswa = response.data.data;
+		const { total } = response.data;
+		setSiswaListed(dataSiswa);
+		if (response.error || total === 0) {
+			toast.error('Data tidak ditemukan!');
+		} else {
+			toast.success(`${total} Data berhasil ditemukan!`);
+		}
 	};
 
 	useEffect(() => {}, [onSubmit]);
