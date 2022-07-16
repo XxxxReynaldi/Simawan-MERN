@@ -16,6 +16,18 @@ export async function getAllSiswa() {
 	return callAPI({ url, method: 'GET' });
 }
 
+export async function getSiswaByFilter(tahunAjaran: any, kelas?: string) {
+	let url = '';
+	if (tahunAjaran && kelas === undefined) {
+		url += `${ROOT_API}/${API_VERSION}/siswa/find/${tahunAjaran}`;
+	}
+	if (tahunAjaran && kelas) {
+		url += `${ROOT_API}/${API_VERSION}/siswa/find/${tahunAjaran}/${kelas}`;
+	}
+
+	return callAPI({ url, method: 'GET' });
+}
+
 export async function showSiswa(id: string) {
 	const url = `${ROOT_API}/${API_VERSION}/siswa/show/${id}`;
 

@@ -57,16 +57,19 @@ export default function Kelas() {
 
 	const onSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
-		const response = (await getKelasByFilter(formData.tahunAjaran, formData.tingkatan)) as any;
+		if (formData.tahunAjaran && formData.tingkatan !== '') {
+			const response = (await getKelasByFilter(formData.tahunAjaran, formData.tingkatan)) as any;
 
-		const dataKelas = response.data.data;
-		const { total } = response.data;
-		setKelasList(dataKelas);
-		if (response.error || total === 0) {
-			toast.error('Data tidak ditemukan!');
-		} else {
-			toast.success(`${total} Data berhasil ditemukan!`);
+			const dataKelas = response.data.data;
+			const { total } = response.data;
+			setKelasList(dataKelas);
+			if (response.error || total === 0) {
+				toast.error('Data tidak ditemukan!');
+			} else {
+				toast.success(`${total} Data berhasil ditemukan!`);
+			}
 		}
+		toast.error('Semua Data Harus terisi');
 	};
 
 	useEffect(() => {}, [onSubmit]);
