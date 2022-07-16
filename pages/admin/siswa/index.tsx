@@ -83,7 +83,7 @@ export default function Siswa() {
 		e.preventDefault();
 
 		if (formData.tahunAjaran && formData.kelas !== '') {
-			const response = (await getSiswaByFilter(formData.tahunAjaran, formData.tingkatan)) as any;
+			const response = (await getSiswaByFilter(formData.tahunAjaran, formData.kelas)) as any;
 
 			const dataSiswa = response.data.data;
 			const { total } = response.data;
