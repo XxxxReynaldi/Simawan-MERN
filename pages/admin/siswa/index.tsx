@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable array-callback-return */
 import { Col, Container, Row, Form, Button } from 'react-bootstrap';
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 
@@ -27,7 +28,7 @@ export default function Siswa() {
 
 	const [formData, setFormData] = useState({ tahunAjaran: '', kelas: '' });
 
-	function handleChange(e: Event): void {
+	function handleChange(e: ChangeEvent<HTMLInputElement>): void {
 		const target = e.target as any;
 		setFormData((prev: any) => ({
 			...prev,

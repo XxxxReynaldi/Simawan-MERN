@@ -2,7 +2,14 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-no-bind */
 
-import { createContext, useCallback, useEffect, useState, SyntheticEvent } from 'react';
+import {
+	createContext,
+	useCallback,
+	useEffect,
+	useState,
+	SyntheticEvent,
+	ChangeEvent,
+} from 'react';
 
 import { Col, Container, Row, Button, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
@@ -34,7 +41,7 @@ export default function Kelas() {
 	const [modalKelas, setShowMKelas] = useState({ show: false, prefix: '', payload: null });
 	const [modalHapus, setModalHapus] = useState({ show: false, id: '' });
 
-	function handleChange(e: Event): void {
+	function handleChange(e: ChangeEvent<HTMLInputElement>): void {
 		const target = e.target as any;
 		setFormData((prev: any) => ({
 			...prev,
