@@ -82,7 +82,7 @@ export default function Siswa() {
 	const onSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 
-		if (formData.tahunAjaran && formData.kelas === '') {
+		if (formData.tahunAjaran || formData.kelas === '') {
 			toast.error('Semua Data Harus terisi');
 			return;
 		}

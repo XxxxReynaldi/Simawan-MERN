@@ -64,7 +64,7 @@ export default function Kelas() {
 
 	const onSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
-		if (formData.tahunAjaran && formData.tingkatan === '') {
+		if (formData.tahunAjaran || formData.tingkatan === '') {
 			toast.error('Semua Data Harus terisi');
 			return;
 		}
