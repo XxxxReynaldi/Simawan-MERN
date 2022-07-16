@@ -64,8 +64,8 @@ export default function Kelas() {
 
 	const onSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
-		if (formData.tahunAjaran || formData.tingkatan === '') {
-			toast.error('Semua Data Harus terisi');
+		if (formData.tahunAjaran === '' || formData.tingkatan === '') {
+			toast.error('Semua inputan harus terisi');
 			return;
 		}
 

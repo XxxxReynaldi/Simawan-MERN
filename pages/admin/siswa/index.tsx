@@ -76,19 +76,19 @@ export default function Siswa() {
 	const selectKelasChange = (value: any) => {
 		if (value) {
 			setSelectedKelas(value);
+			setFormData((prev: any) => ({ ...prev, kelas: value.value }));
 		}
 	};
 
 	const onSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 
-		if (formData.tahunAjaran || formData.kelas === '') {
-			toast.error('Semua Data Harus terisi');
+		if (formData.tahunAjaran === '' || formData.kelas === '') {
+			toast.error('Semua inputan harus terisi');
 			return;
 		}
 
 		const response = (await getSiswaByFilter(formData.tahunAjaran, formData.kelas)) as any;
-
 		const dataSiswa = response.data.data;
 		const { total } = response.data;
 		setSiswaListed(dataSiswa);
