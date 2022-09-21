@@ -46,7 +46,7 @@ export default function Jurusan() {
 	};
 
 	useEffect(() => {
-		document.title = `Halaman Jurusan`;
+		document.title = `MERN | Halaman Jurusan`;
 		return () => {
 			document.title = `MERN Stack`;
 		};
