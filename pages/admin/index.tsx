@@ -3,7 +3,7 @@ import SideBar from '../../components/organisms/SideBar';
 
 export default function Index() {
 	useEffect(() => {
-		document.title = `Halaman Dashboard`;
+		document.title = `MERN | Halaman Dashboard`;
 		return () => {
 			document.title = `MERN Stack`;
 		};

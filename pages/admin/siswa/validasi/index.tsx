@@ -149,7 +149,7 @@ export default function Validasi() {
 	);
 
 	useEffect(() => {
-		document.title = `Halaman Validasi Siswa`;
+		document.title = `MERN | Halaman Validasi Siswa`;
 		return () => {
 			document.title = `MERN Stack`;
 		};

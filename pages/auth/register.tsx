@@ -56,7 +56,7 @@ export default function Register() {
 	};
 
 	useEffect(() => {
-		document.title = `Halaman Pendaftaran Siswa`;
+		document.title = `MERN | Halaman Pendaftaran Siswa`;
 		return () => {
 			document.title = `MERN Stack`;
 		};

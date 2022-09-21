@@ -46,7 +46,7 @@ export default function Login() {
 		}
 	};
 	useEffect(() => {
-		document.title = `Halaman Login `;
+		document.title = `MERN | Halaman Login `;
 		return () => {
 			document.title = `MERN Stack`;
 		};

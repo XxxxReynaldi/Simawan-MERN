@@ -69,7 +69,7 @@ export default function Pelanggaran() {
 	}, [modalPelanggaran, modalHapus]);
 
 	useEffect(() => {
-		document.title = `Halaman Pelanggaran`;
+		document.title = `MERN | Halaman Pelanggaran`;
 		return () => {
 			document.title = `MERN Stack`;
 		};

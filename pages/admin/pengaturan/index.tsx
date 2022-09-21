@@ -44,7 +44,7 @@ export default function Pengaturan(props: any) {
 	}, [modalImage]);
 
 	useEffect(() => {
-		document.title = `Halaman Pengaturan`;
+		document.title = `MERN | Halaman Pengaturan`;
 		return () => {
 			document.title = `MERN Stack`;
 		};

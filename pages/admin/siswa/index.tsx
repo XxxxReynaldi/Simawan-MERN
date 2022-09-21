@@ -125,7 +125,7 @@ export default function Siswa() {
 	};
 
 	useEffect(() => {
-		document.title = `Halaman Siswa`;
+		document.title = `MERN | Halaman Siswa`;
 		return () => {
 			document.title = `MERN Stack`;
 		};
