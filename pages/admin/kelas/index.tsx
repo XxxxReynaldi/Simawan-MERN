@@ -31,7 +31,7 @@ import { getAllJurusan } from '../../../services/jurusan';
 export const OptionKeahlianContext = createContext([]);
 
 export default function Kelas() {
-	let fnCount: number = 1;
+	// let fnCount: number = 1;
 	const year = new Date().getFullYear().toString();
 	const [formData, setFormData] = useState({
 		tingkatan: '',
@@ -88,12 +88,12 @@ export default function Kelas() {
 		const response = (await getAllKelas()) as any;
 		const dataKelas = response.data.data;
 		setKelasList(dataKelas);
-		fnCount += 1;
+		// fnCount += 1;
 	}, [getAllKelas]);
 
 	useEffect(() => {
 		getKelasList();
-		fnCount += 1;
+		// fnCount += 1;
 		// console.log('fnCount kelas React: ', fnCount);
 	}, [modalKelas, modalHapus]);
 
@@ -118,7 +118,7 @@ export default function Kelas() {
 			collection.push(option);
 		});
 		setOptionKeahlian(collection);
-		fnCount += 1;
+		// fnCount += 1;
 	};
 
 	const getKeahlian = useCallback(async () => {
@@ -126,32 +126,32 @@ export default function Kelas() {
 		const dataJurusan = response.data.data;
 
 		settingOption(dataJurusan);
-		fnCount += 1;
+		// fnCount += 1;
 	}, [getAllJurusan]);
 
 	useEffect(() => {
-		fnCount += 1;
+		// fnCount += 1;
 		getKeahlian();
 	}, []);
 
 	const handleAdd = () => {
-		fnCount += 1;
+		// fnCount += 1;
 		setShowMKelas({ show: true, prefix: 'Tambah', payload: null });
 	};
 
 	const handleEdit = (data: any) => {
-		fnCount += 1;
+		// fnCount += 1;
 		setShowMKelas({ show: true, prefix: 'Edit', payload: data });
 	};
 
 	const handleDelete = (id: string) => {
-		fnCount += 1;
+		// fnCount += 1;
 		setModalHapus({ show: true, id });
 	};
 
 	useEffect(() => {
 		document.title = `MERN | Halaman Kelas`;
-		fnCount += 1;
+		// fnCount += 1;
 		return () => {
 			document.title = `MERN Stack`;
 		};

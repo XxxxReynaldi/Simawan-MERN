@@ -24,7 +24,7 @@ interface ModalHapusProps {
 }
 
 export default function ModalHapus(props: Partial<ModalHapusProps>) {
-	let fnCount: number = 1;
+	// let fnCount: number = 1;
 	const { show, handleClose, prefix, suffix, id = '' } = props;
 
 	const [payload, setPayload] = useState({});
@@ -43,7 +43,7 @@ export default function ModalHapus(props: Partial<ModalHapusProps>) {
 				}
 				break;
 			case 'Kelas':
-				fnCount += 1;
+				// fnCount += 1;
 				const deleteKelas = (await destroyKelas(id)) as any;
 				if (deleteKelas.error) {
 					toast.error(deleteKelas.message);

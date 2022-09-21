@@ -29,7 +29,7 @@ interface ModalKelasProps {
 }
 
 export default function ModalKelas(props: Partial<ModalKelasProps>) {
-	let fnCount: number = 1;
+	// let fnCount: number = 1;
 	const { show, handleClose, prefix, payload } = props;
 
 	const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 
 	useEffect(() => {
 		getYear();
-		fnCount += 1;
+		// fnCount += 1;
 	}, []);
 
 	const [cardKelas, setCardKelas] = useState({
@@ -91,7 +91,7 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 			setPrefixKode((prev: any) => ({ ...prev, kodeTingkatan: value.kode }));
 			setCardKelas((prev: any) => ({ ...prev, tingkatan: value.value }));
 		}
-		fnCount += 1;
+		// fnCount += 1;
 	};
 
 	const selectKeahlianChange = (value: any) => {
@@ -102,7 +102,7 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 			setPrefixKode((prev: any) => ({ ...prev, kodeKeahlian: kode }));
 			setCardKelas((prev: any) => ({ ...prev, keahlian: { singkatan, paketKeahlian, warna } }));
 		}
-		fnCount += 1;
+		// fnCount += 1;
 	};
 
 	const getKelas = useCallback(async (data: any) => {
@@ -142,11 +142,11 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 		if (payload) {
 			getKelas(payload);
 		}
-		fnCount += 1;
+		// fnCount += 1;
 	}, [payload]);
 
 	function handleChange(e: ChangeEvent<HTMLInputElement>) {
-		fnCount += 1;
+		// fnCount += 1;
 		const target = e.target as any;
 		setFormData((prev: any) => ({
 			...prev,
@@ -175,7 +175,7 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 	}
 
 	function handleGenerateKode(e: SyntheticEvent): void {
-		fnCount += 1;
+		// fnCount += 1;
 		e.preventDefault();
 		const { kodeTingkatan, kodeKeahlian, kodeTahunAjaran } = prefixKode;
 		// console.log('prefixKode', prefixKode);
@@ -185,7 +185,7 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 	}
 
 	function resetForm() {
-		fnCount += 1;
+		// fnCount += 1;
 		setFormData({
 			_id: '',
 			kode: '',
@@ -207,7 +207,7 @@ export default function ModalKelas(props: Partial<ModalKelasProps>) {
 	}
 
 	const onSubmit = async (e: SyntheticEvent) => {
-		fnCount += 1;
+		// fnCount += 1;
 		e.preventDefault();
 		setField({});
 
