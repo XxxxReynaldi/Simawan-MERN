@@ -137,7 +137,7 @@ export default function ModalHapus(props: Partial<ModalHapusProps>) {
 		if (id && suffix === 'Jurusan') {
 			getJurusan(id);
 		} else if (id && suffix === 'Kelas') {
-			fnCount += 1;
+			// fnCount += 1;
 			getKelas(id);
 		} else if (id && suffix === 'Pelanggaran') {
 			getPelanggaran(id);
